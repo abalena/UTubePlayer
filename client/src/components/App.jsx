@@ -1,5 +1,5 @@
 import React from 'react';
-import youtube from '../api/index.js';
+import api from '../api/index.js';
 import SearchBar from './SearchBar.jsx';
 import VideoList from './VideoList.jsx';
 import VideoDetail from './VideoDetail.jsx';
@@ -15,18 +15,17 @@ export default class App extends React.Component{
       selectedVideo: null
     }
   }
-    handleSubmit = async(termFromSearchBar) => {
-      const response = await youtube.get('/search', {
-        params: {
-          q: termFromSearchBar
-        }
-      });
-      this.setState({
-        videos: response.data.items
-      });
-    };
+  handleSubmit = async(itemFromSearchBar) => {
+    const response = await api.findVideo(itemFromSearchBar)
+    this.setState({
+      videos: response.data.items
+    });
+  };
+
     handleVideoSelect = (video) => {
+      console.log("App");
       this.setState({selectedVideo: video})
+
     }
   render(){
     return(

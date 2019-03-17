@@ -11,8 +11,9 @@ export default class VideoList extends React.Component{
                 video={video}
                 handleVideoSelect={this.props.handleVideoSelect}
               />
-      });
-    }
+    });
+  }
+
   render(){
     return(
       <div className="VideoList">{this.renderVideos()}</div>
