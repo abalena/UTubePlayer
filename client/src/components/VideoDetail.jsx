@@ -18,7 +18,6 @@ export default class VideoDetail extends React.Component{
            </div>
          )
        }
-    return <h6>Find video</h6>
   }
 
   render(){

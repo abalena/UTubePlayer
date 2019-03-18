@@ -11,7 +11,13 @@ app.use(bodyParser.json());
 
 app.get('/player/:userId', (req, res) => {
   db.listOfVideos(req.params.userId).then(data => {
-    res.send(data);
+    console.log(data);
+    const resData = {
+      videoId: data.videoId,
+      videoTitle: data.videoTitle,
+      userId: data.userId
+    }
+    res.send(resData);
   });
 });
 

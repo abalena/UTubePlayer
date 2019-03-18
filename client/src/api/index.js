@@ -1,4 +1,5 @@
 import axios from 'axios';
+import {apiPrefix} from '../../etc/config.json';
 
 const KEY = 'AIzaSyAb2DpSZw9P8SpDcjiLQ0emH5F65FGyJzI';
 
@@ -18,8 +19,8 @@ export default{
       }
     })
   },
-  listOfVideos(){
-    return axios.get(`${apiPrefix}/player/:userId`);
+  listOfHistory(userId){
+    return axios.get(`${apiPrefix}/player/${userId}`);
   },
   addVideo(data){
     return axios.post(`${apiPrefix}/player`, data);

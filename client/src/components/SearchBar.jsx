@@ -18,7 +18,6 @@ export default class SearchBar extends React.Component{
   render(){
     return(
       <div className="SearchBar">
-        <label>Video Search</label>
         <form onSubmit={this.handleSubmit}>
           <input
               onChange={this.handleChange}

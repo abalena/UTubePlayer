@@ -1,5 +1,6 @@
 import React from 'react';
 import api from '../api/index.js';
+import user from '../../etc/user.json';
 import SearchBar from './SearchBar.jsx';
 import VideoList from './VideoList.jsx';
 import VideoDetail from './VideoDetail.jsx';
@@ -12,7 +13,8 @@ export default class App extends React.Component{
     super(props)
     this.state = {
       videos: [],
-      selectedVideo: null
+      selectedVideo: null,
+      historyList: []
     }
   }
   handleSubmit = async(itemFromSearchBar) => {
@@ -20,19 +22,32 @@ export default class App extends React.Component{
     this.setState({
       videos: response.data.items
     });
-  };
+  }
 
     handleVideoSelect = (video) => {
-      console.log("App");
-      this.setState({selectedVideo: video})
-
+      this.setState({selectedVideo: video});
+      api.addVideo({
+        videoId: video.id.videoId,
+        videoTitle: video.snippet.title,
+        userId: user.userId
+      })
     }
+
+    handleVideoDelete = (video) => {
+        api.deleteVideo(filmId)
+    }
+    loadHistory = async () => {
+      const res = await api.listOfHistory(user.userId);
+      this.setState({historyList: res});
+    }
+
   render(){
     return(
       <div className="App">
         <SearchBar handleSubmit={this.handleSubmit} />
         <div className="main">
-          <HistoryList />
+          <button onClick={this.loadHistory}>Load</button>
+          <HistoryList onVideoDelete={this.handleVideoDelete} videos={this.state.historyList} />
           <VideoDetail video={this.state.selectedVideo}  />
           <div>
             <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>

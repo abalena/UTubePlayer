@@ -6,11 +6,13 @@ export default class VideoList extends React.Component{
   renderVideos(){
     const {videos} = this.props;
     return videos.map(video => {
-      return <VideoItem
-                key={video.id.videoId}
-                video={video}
-                handleVideoSelect={this.props.handleVideoSelect}
-              />
+      if(video.id.kind == "youtube#video"){
+        return <VideoItem
+                  key={video.id.videoId}
+                  video={video}
+                  handleVideoSelect={this.props.handleVideoSelect}
+                />
+        }
     });
   }
 

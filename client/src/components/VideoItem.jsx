@@ -5,11 +5,10 @@ export default class VideoItem extends React.Component{
     super(props)
     this.video = this.props.video;
   }
-
   onSelect = () => {
     this.props.handleVideoSelect(this.video)
   }
-  
+
   render(){
     return(
       <div className="VideoItem">

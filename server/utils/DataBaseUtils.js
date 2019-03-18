@@ -10,14 +10,15 @@ function setUpConnection(){
 setUpConnection();
 
 export function listOfVideos(uId){
-  return Video.find({userId: uId})
+  return Video.find({userId: uId}).sort({date: 1});
 }
 
 export function addVideoToHistory(data){
   const video = new Video({
     videoTitle: data.videoTitle,
     videoId: data.videoId,
-    userId: data.userId
+    userId: data.userId,
+    date: new Date()
   });
   return video.save();
 }
