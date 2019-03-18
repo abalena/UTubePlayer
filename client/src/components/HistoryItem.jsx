@@ -5,9 +5,11 @@ export default class HistoryItem extends React.Component{
     super(props)
     this.video = this.props.video;
   }
+
   onDelete = () => {
     this.props.onVideoDelete(this.video);
   }
+  
   render(){
     return(
       <div>

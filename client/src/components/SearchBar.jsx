@@ -24,7 +24,7 @@ export default class SearchBar extends React.Component{
               name='video-search'
               type='text'
               value={this.state.search}
-              placeholder="Enter request "
+              placeholder="Search on YouTube... "
            />
            <button onClick={this.handleSubmit}>OK</button>
          </form>

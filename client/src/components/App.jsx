@@ -17,6 +17,7 @@ export default class App extends React.Component{
       historyList: []
     }
   }
+
   handleSubmit = async(itemFromSearchBar) => {
     const response = await api.findVideo(itemFromSearchBar)
     this.setState({
@@ -24,22 +25,23 @@ export default class App extends React.Component{
     });
   }
 
-    handleVideoSelect = (video) => {
-      this.setState({selectedVideo: video});
-      api.addVideo({
-        videoId: video.id.videoId,
-        videoTitle: video.snippet.title,
-        userId: user.userId
-      })
-    }
+  handleVideoSelect = (video) => {
+    this.setState({selectedVideo: video});
+    api.addVideo({
+      videoId: video.id.videoId,
+      videoTitle: video.snippet.title,
+      userId: user.userId
+    })
+  }
 
-    handleVideoDelete = (video) => {
-        api.deleteVideo(filmId)
-    }
-    loadHistory = async () => {
-      const res = await api.listOfHistory(user.userId);
-      this.setState({historyList: res});
-    }
+  loadHistory = async () => {
+    const res = await api.listOfHistory(user.userId);
+    this.setState({historyList: res});
+  }
+
+  handleVideoDelete = (video) => {
+    api.deleteVideo(filmId)
+  }
 
   render(){
     return(
@@ -50,7 +52,7 @@ export default class App extends React.Component{
           <HistoryList onVideoDelete={this.handleVideoDelete} videos={this.state.historyList} />
           <VideoDetail video={this.state.selectedVideo}  />
           <div>
-            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos}/>
+            <VideoList handleVideoSelect={this.handleVideoSelect} videos={this.state.videos} />
           </div>
         </div>
       </div>

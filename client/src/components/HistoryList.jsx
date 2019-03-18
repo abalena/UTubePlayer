@@ -7,7 +7,6 @@ export default class HistoryList extends React.Component{
     const {videos} = this.props.videos;
     if(videos){
       return videos.map(video => {
-        console.log("HIstoryList: " + video);
         return(
           <HistoryItem
               key={video.id.videoId}
@@ -17,6 +16,7 @@ export default class HistoryList extends React.Component{
       })
     }
   }
+
   render(){
     return(
       <div className="HistoryList">
