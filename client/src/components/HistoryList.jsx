@@ -22,7 +22,7 @@ export default class HistoryList extends React.Component{
   render(){
     return(
       <div className="HistoryList">
-        <div>History List</div>
+        <h3>History List</h3>
         <div>{this.generateHistoryList()}</div>
       </div>
     )

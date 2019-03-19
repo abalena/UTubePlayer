@@ -19,6 +19,21 @@ export default{
       }
     })
   },
+  findVideoById(videoId){
+    const params = axios.create({
+      baseURL: 'https://www.googleapis.com/youtube/v3/',
+      params: {
+        part: 'snippet',
+        maxResults: 1,
+        key: KEY
+      }
+  })
+    return params.get(`/search`, {
+      params: {
+        q: "youtu.be/" + videoId
+      }
+    })
+  },
   listOfHistory(userId){
     return axios.get(`${apiPrefix}/player/${userId}`);
   },

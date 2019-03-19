@@ -12,7 +12,11 @@ app.use(bodyParser.json());
 app.get('/player/:userId', (req, res) => {
   db.listOfVideos(req.params.userId).then(data => {
     res.send(data);
-  });
+  })
+  .catch(err => {
+    console.log(err)
+    res.send("Can't get list of videos because of unexpected error")
+  })
 });
 
 app.post('/player', (req, res) => {
@@ -20,7 +24,8 @@ app.post('/player', (req, res) => {
     res.send(data);
   })
   .catch(err => {
-    res.send(err)
+    console.log(err)
+    res.send("Can't add video because of unexpected error")
   });
 });
 
@@ -29,7 +34,8 @@ app.delete('/player/:id', (req, res) => {
     res.send(data);
   })
   .catch(err => {
-    res.send(err)
+    console.log(err)
+    res.send("Can't delete video because of unexpected error");
   });
 });
 
