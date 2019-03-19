@@ -11,13 +11,11 @@ app.use(bodyParser.json());
 
 app.get('/player/:userId', (req, res) => {
   db.listOfVideos(req.params.userId).then(data => {
-    console.log(data);
     res.send(data);
   });
 });
 
 app.post('/player', (req, res) => {
-  console.log(req.body);
   db.addVideoToHistory(req.body).then(data => {
     res.send(data);
   })
@@ -27,7 +25,7 @@ app.post('/player', (req, res) => {
 });
 
 app.delete('/player/:id', (req, res) => {
-  db.deleteFilm(req.params.id).then(data => {
+  db.deleteVideo(req.params.id).then(data => {
     res.send(data);
   })
   .catch(err => {

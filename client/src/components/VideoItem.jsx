@@ -12,13 +12,8 @@ export default class VideoItem extends React.Component{
   render(){
     return(
       <div className="VideoItem">
-        <div id="video">
-          <img src={this.video.snippet.thumbnails.medium.url}></img>
-        </div>
-        <div id="title">{this.video.snippet.title}</div>
-        <div id="button">
-          <button onClick={this.onSelect}>Play</button>
-        </div>
+        <img onClick={this.onSelect} src={this.video.snippet.thumbnails.medium.url}></img>
+        <h6 id="title">{this.video.snippet.title}</h6>
       </div>
     )
   }

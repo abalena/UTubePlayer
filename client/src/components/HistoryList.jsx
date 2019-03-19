@@ -4,13 +4,15 @@ import HistoryItem from './HistoryItem.jsx';
 export default class HistoryList extends React.Component{
 
   generateHistoryList(){
-    const {videos} = this.props.videos;
+    const videos = this.props.videos;
     if(videos){
       return videos.map(video => {
         return(
           <HistoryItem
-              key={video.id.videoId}
+              key={video._id}
               video={video}
+              onVideoDelete={this.props.onVideoDelete}
+              handleVideoSelect={this.props.handleVideoSelect}
           />
         )
       })

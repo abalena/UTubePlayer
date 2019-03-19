@@ -9,8 +9,8 @@ function setUpConnection(){
 }
 setUpConnection();
 
-export function listOfVideos(uId){
-  return Video.find({userId: uId}).sort({date: 1});
+export function listOfVideos(userId){
+  return Video.find({userId: userId}).sort({date: -1});
 }
 
 export function addVideoToHistory(data){
@@ -25,5 +25,5 @@ export function addVideoToHistory(data){
 
 
 export function deleteVideo(id){
-  return Video.findById(id).remove();
+  return Video.findById(id).deleteOne();
 }

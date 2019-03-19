@@ -7,31 +7,27 @@
 	}
 .main{
   display: flex;
-  justify-content: space-between;
+	justify-content: space-between;
   flex-grow: 1;
 }
 .VideoList{
   display: flex;
   flex-direction: column;
+	align-items: stretch;
+	width: 40%;
+	margin-right: 3%;
 }
 .VideoItem{
   display: flex;
   flex-direction: row;
-  justify-content: space-between;
-}
-.VideoItem button{
-	font-size: 1em;
-	border: 1px solid #ef2b2b;
-	background-color: #ef2b2b;
-	border-radius: 4px;
-	color: white;
-	margin: 5px;
+	margin-top: 10px;
 }
 .VideoDetail{
-  margin: 0 100px;
+  margin: 0 5%;
 }
 .SearchBar{
   margin: 20px;
+	width: 100%;
 }
 .SearchBar button, input{
   background-color: #e7;
@@ -46,4 +42,17 @@
 .SearchBar input{
   width: 30%;
   background-color: inherit;
+}
+.HistoryItem{
+	margin: 5%;
+	display: flex;
+	justify-content: flex-start;
+}
+.HistoryItem button{
+	font-size: 0.8em;
+	border: 1px solid #ef2b2b;
+	background-color: #ef2b2b;
+	border-radius: 4px;
+	color: white;
+	margin-right: 5px;
 }

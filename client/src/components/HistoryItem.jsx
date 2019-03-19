@@ -6,17 +6,23 @@ export default class HistoryItem extends React.Component{
     this.video = this.props.video;
   }
 
+  onSelect = () => {
+    this.props.handleVideoSelect(this.video)
+  }
+
   onDelete = () => {
     this.props.onVideoDelete(this.video);
   }
-  
+
   render(){
     return(
-      <div>
-        <div>
-          {this.video.snippet.title}
-        </div>
-        <button onClick={this.onDelete}>Delete</button>
+      <div className="HistoryItem">
+        <span>
+          <button onClick={this.onDelete}>Delete</button>
+        </span>
+        <span onClick={this.onSelect}>
+          {this.video.videoTitle}
+        </span>
       </div>
     )
   }

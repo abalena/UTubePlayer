@@ -9,7 +9,7 @@ export default{
       baseURL: 'https://www.googleapis.com/youtube/v3/',
       params: {
         part: 'snippet',
-        maxResults: 5,
+        maxResults: 10,
         key: KEY
       }
   })
@@ -26,6 +26,6 @@ export default{
     return axios.post(`${apiPrefix}/player`, data);
   },
   deleteVideo(videoId){
-    return axios.delete(`${apiPrefix}/player/${filmId}`);
+    return axios.delete(`${apiPrefix}/player/${videoId}`);
   }
 }
